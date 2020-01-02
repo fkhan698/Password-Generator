@@ -53,6 +53,19 @@ function arrayLowToHigh(low, high){
     return array
 }
 
+function copyButton(){
+    var copyText = passWordDisplay.innerText
+      if(passWordDisplay.innerText === 'Password'){
+        return 
+      }    navigator.clipboard.writeText(copyText).then(function() {
+      console.log('Async: Copying to clipboard was successful!');
+    }, function(err) {
+      console.error('Async: Could not copy text: ', err);
+    });
+    alert("Text was copied")
+}
+
+
 characterRange.addEventListener('input', syncInputs)
 numberInput.addEventListener('input', syncInputs)
 
