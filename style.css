@@ -1,0 +1,73 @@
+body {
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    flex-direction: column;
+    align-items: center;
+    background-color: #455462;
+    font-family: 'Kanit', sans-serif;
+}
+.container{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    border-style: solid;
+    border-radius: 1rem;
+    border-color: white;
+    border-width: 1rem;
+    padding: 5rem;
+    background-color: 	#d6d9dd;
+}
+.header {
+    text-align: center;
+    color: black;
+    
+}
+.paragraph {
+    color: black
+}
+
+.password-display {
+    background-color: white;
+    color: black;
+    border-style: solid;
+    border-color: black;
+    border-radius: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.password-range{
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+    }
+
+
+.generate-button{
+display: flex;
+justify-content: center;
+
+}
+
+.copyButton {
+    font-size: 10px;
+    border-style: solid;
+    border-color: black;
+    padding:  1em 1em 1em;
+    
+    border-radius: 1em
+}
+.btn {
+    font-size: 15px;
+    border-style: solid;
+    border-color: black;
+    padding:  1em 2em 1em;
+    margin-top: 1em;
+    border-radius: 1em
+
+}
+
+

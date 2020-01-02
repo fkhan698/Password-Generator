@@ -1,0 +1,71 @@
+const characterRange = document.getElementById('characterAmountRange')
+const numberInput = document.getElementById('numberInput')
+const upperCaseInput = document.getElementById('includeUpperCase')
+const numbersElement = document.getElementById('includeNumbers')
+const symbolsElement = document.getElementById('includeSymbols')
+const form = document.getElementById('passwordGeneratorForm')
+const passWordDisplay = document.getElementById('password-display')
+
+const UPPER_CASE_CHAR_CODES = arrayFromHighToLow(65, 90)
+const LOWER_CASE_CHAR_CODES = arrayFromHighToLow(97, 122)
+const NUMBER_CHAR_CODES = arrayFromHighToLow(48, 57)
+const SYMBOL_CHAR_CODES = arrayFromHighToLow(33, 47).concat(
+    arrayFromHighToLow(58,64)
+).concat(
+    arrayFromHighToLow(91,96)
+).concat(
+    arrayFromHighToLow(123, 126)
+)
+
+characterRange.addEventListener('input', syncCharacterAmount)
+numberInput.addEventListener('input', syncCharacterAmount)
+
+form.addEventListener('submit', e => {
+    e.preventDefault()
+    const characterAmount = numberInput.value
+    const upperCase = upperCaseInput.checked
+    const numbers = numbersElement.checked
+    const specialChar = symbolsElement.checked
+    const password = generatePassword(characterAmount, upperCase, numbers, specialChar)
+    passWordDisplay.innerText = password
+})
+
+function generatePassword(characterAmount, upperCase, numbers, specialChar ){
+    let charCodes = LOWER_CASE_CHAR_CODES
+    if(upperCase) charCodes = charCodes.concat(UPPER_CASE_CHAR_CODES)
+    if(numbers) charCodes = charCodes.concat(NUMBER_CHAR_CODES)
+    if(specialChar) charCodes = charCodes.concat(SYMBOL_CHAR_CODES)
+
+    const passwordCharacters = []
+    for(let i = 0; i < characterAmount; i++){
+       const characterCode = charCodes[Math.floor(Math.random() * charCodes.length)]
+       passwordCharacters.push(String.fromCharCode(characterCode))
+    }
+    return passwordCharacters.join('')
+
+}
+
+function arrayFromHighToLow(low, high){
+    const array = []
+    for(let i = low; i <= high; i++){
+        array.push(i)
+    }
+    return array
+}
+
+
+
+function copyFunction(){
+   const copyText = passWordDisplay
+   copyText.select()
+   document.execCommand("copy")
+   alert("Text was copied")
+}
+
+
+function syncCharacterAmount(e){
+    const value = e.target.value
+    characterRange.value = value
+    numberInput.value = value
+ 
+}

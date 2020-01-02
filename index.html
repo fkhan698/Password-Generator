@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Password Generator</title>
+    
+    <link href="https://fonts.googleapis.com/css?family=Kanit&display=swap" rel="stylesheet">
+
+    <script defer src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+        <h2 class="header">Password Generator</h2>
+        <div class="password-display" id="password-display">
+          <h3>Password</h3>
+          
+        </div> 
+        <button class="copyButton" onclick="copyButton()">Copy</button>
+        <p class="paragraph">Click inputs to generate password</p>
+
+        <form id="passwordGeneratorForm" class="form">
+                <div class="password-range">
+                        <input type="range" value="10" id="characterAmountRange" min="10" max="50" list="ranges">
+                        <input type="number" value="10" id="numberInput"  min="10" max="50">
+                    </div>
+              
+                    <div class="controls">
+                          <input type="checkbox" id="includeUpperCase">
+                          <label for="includeUppercase">Use UpperCase Letters</label>
+                    </div>
+                    <div class="controls">
+                          <input type="checkbox" id="includeSymbols">
+                          <label for="includeSpecialChar">Use Special Characters</label>
+                    </div>
+                    <div class="controls">
+                          <input type="checkbox" id="includeNumbers">
+                          <label for="includeNumbers">Use Numbers</label>
+                    </div>
+                    <div class="generate-button">
+                        <button class="btn" id="generate-button" type="submit">Generate</button>
+                    </div>
+            
+        </form>
+        
+</div>
+        
+
+</body>
+</html>
