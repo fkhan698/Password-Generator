@@ -33,7 +33,7 @@ function generatePassword(characterAmount, includeUpperCase, includeNumbers, inc
     if(includeNumbers) charCodes = charCodes.concat(NUMBER_CHAR_CODES)
     if(includeSymbols) charCodes = charCodes.concat(SPECIAL_CHAR_CODES)
     const passwordCharacters = []
-    for(let i = 0; i < characterAmount.length; i++){
+    for(let i = 0; i < characterAmount; i++){
         const characterCode = charCodes[Math.floor(Math.random() * charCodes.length)]
         passwordCharacters.push(String.fromCharCode(characterCode))
     }
